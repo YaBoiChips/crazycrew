@@ -1,5 +1,9 @@
 package yaboichips.crazycrew;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,7 +18,10 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import yaboichips.crazycrew.core.CCEntities;
+import yaboichips.crazycrew.core.CCItems;
 
+import javax.annotation.Nonnull;
 import java.util.stream.Collectors;
 
 import static yaboichips.crazycrew.CrazyCrew.MOD_ID;
@@ -71,6 +78,11 @@ public class CrazyCrew {
         LOGGER.info("HELLO from server starting");
     }
 
+    public static @Nonnull
+    ResourceLocation createResource(String path) {
+        return new ResourceLocation(MOD_ID, path);
+    }
+
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -79,5 +91,25 @@ public class CrazyCrew {
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             LOGGER.info("HELLO from Register Block");
         }
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        LOGGER.debug("CrazyCrew: Registering items...");
+        CCItems.init();
+        CCItems.items.forEach(item -> event.getRegistry().register(item));
+        CCItems.items.clear();
+        CCItems.items = null;
+        LOGGER.info("CrazyCrew: Items registered!");
+    }
+
+    @SubscribeEvent
+    public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
+        LOGGER.debug("Preparing Entities");
+        CCEntities.init();
+        CCEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
+        CCEntities.entities.clear();
+        CCEntities.entities = null;
+        LOGGER.info("Entities registered!!");
     }
 }
