@@ -21,7 +21,7 @@ import java.util.Random;
 
 import static net.minecraft.util.Mth.*;
 
-public class Denki extends SwordItem {
+public final class Denki extends SwordItem {
 
     private static final Logger LOGGER = LogManager.getLogger();
 

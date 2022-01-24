@@ -10,7 +10,7 @@ import yaboichips.crazycrew.CrazyCrew;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CCEntities {
+public final class CCEntities {
     public static List<EntityType<?>> entities = new ArrayList<>();
 
     @Contract("null, _ -> fail; _, null -> fail; !null, !null -> new")

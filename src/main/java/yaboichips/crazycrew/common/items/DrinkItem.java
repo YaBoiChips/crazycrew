@@ -16,7 +16,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class DrinkItem extends Item {
+public final class DrinkItem extends Item {
     public DrinkItem(final @NotNull Item.Properties builder) {
         super(builder);
     }

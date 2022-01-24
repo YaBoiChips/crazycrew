@@ -1,7 +1,6 @@
 package yaboichips.crazycrew;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -28,7 +27,7 @@ import static yaboichips.crazycrew.CrazyCrew.MOD_ID;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MOD_ID)
-public class CrazyCrew {
+public final class CrazyCrew {
 
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "crazycrew";
@@ -41,8 +40,7 @@ public class CrazyCrew {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        LOGGER.info("CrazyCrew: Loadup stage: PREINIT");
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
@@ -76,11 +74,11 @@ public class CrazyCrew {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("CrazyCrew: Loadup stage: SRVSTART");
     }
 
     public static @Nonnull
-    ResourceLocation createResource(String path) {
+    ResourceLocation createResource(final String path) {
         return new ResourceLocation(MOD_ID, path);
     }
 
@@ -90,12 +88,12 @@ public class CrazyCrew {
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            LOGGER.info("HELLO from Register Block");
+            LOGGER.info("CrazyCrew: Loadup stage: Registering blocks");
         }
 
         @SubscribeEvent
         public static void registerItems(RegistryEvent.Register<Item> event) {
-            LOGGER.debug("CrazyCrew: Registering items...");
+            LOGGER.debug("CrazyCrew: Loadup stage:  Registering items...");
             CCItems.init();
             CCItems.items.forEach(item -> event.getRegistry().register(item));
             CCItems.items.clear();
@@ -105,7 +103,7 @@ public class CrazyCrew {
 
         @SubscribeEvent
         public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
-            LOGGER.debug("Preparing Entities");
+            LOGGER.debug("CrazyCrew: Loadup Stage: Preparing Entities");
             CCEntities.init();
             CCEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
             CCEntities.entities.clear();

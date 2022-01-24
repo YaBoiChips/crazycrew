@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class CCItems {
+public final class CCItems {
 
-    public static @NotNull List<Item> items = new ArrayList<>();
+    public static List<Item> items = new ArrayList<>();
 
     public static final @NotNull CreativeModeTab TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
         @Override
