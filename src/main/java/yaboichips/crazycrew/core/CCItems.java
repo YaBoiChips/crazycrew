@@ -1,10 +1,11 @@
 package yaboichips.crazycrew.core;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.food.Item;
 import net.minecraft.world.item.*;
 import yaboichips.crazycrew.CrazyCrew;
+import yaboichips.crazycrew.common.items.Denki;
 import yaboichips.crazycrew.common.items.DrinkItem;
+import yaboichips.crazycrew.common.items.FireSword;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,9 @@ public class CCItems {
             return new ItemStack(Items.APPLE);
         }
     };
+    public static final Item DENKI = createItem(new Denki(Tiers.DIAMOND, 3, -2.4F, new Item.Properties().tab(TAB)), "denki");
+    public static final Item FIRE_SWORD = createItem(new FireSword(Tiers.DIAMOND, 3, -2.4F, new Item.Properties().tab(TAB)), "fire_sword");
+
 
     public static final Item CELERY = createItem(new Item(new Item.Properties().food(CCFood.CELERY).tab(TAB)), "celery");
     public static final Item MACAROONS = createItem(new Item(new Item.Properties().food(CCFood.MACAROONS).tab(TAB)), "macaroons");

@@ -71,6 +71,7 @@ public class CrazyCrew {
      - James (Uno Reverse Card, Chicken Strips, Minigun?)
      - Sam (Coffee, Stick of Sadness, Hair Dye (invis))
      - Taede (Gun (Phantom AK-47 thing), Ninja Smoke Bomb, Stimpack?)
+     - Jake (Speed Boots WHEEEEE (lightning maybe), Chocolate Milk, Throwing Knife)
      **/
 
     @SubscribeEvent
@@ -91,25 +92,25 @@ public class CrazyCrew {
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             LOGGER.info("HELLO from Register Block");
         }
-    }
 
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-        LOGGER.debug("CrazyCrew: Registering items...");
-        CCItems.init();
-        CCItems.items.forEach(item -> event.getRegistry().register(item));
-        CCItems.items.clear();
-        CCItems.items = null;
-        LOGGER.info("CrazyCrew: Items registered!");
-    }
+        @SubscribeEvent
+        public static void registerItems(RegistryEvent.Register<Item> event) {
+            LOGGER.debug("CrazyCrew: Registering items...");
+            CCItems.init();
+            CCItems.items.forEach(item -> event.getRegistry().register(item));
+            CCItems.items.clear();
+            CCItems.items = null;
+            LOGGER.info("CrazyCrew: Items registered!");
+        }
 
-    @SubscribeEvent
-    public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
-        LOGGER.debug("Preparing Entities");
-        CCEntities.init();
-        CCEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
-        CCEntities.entities.clear();
-        CCEntities.entities = null;
-        LOGGER.info("Entities registered!!");
+        @SubscribeEvent
+        public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
+            LOGGER.debug("Preparing Entities");
+            CCEntities.init();
+            CCEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
+            CCEntities.entities.clear();
+            CCEntities.entities = null;
+            LOGGER.info("Entities registered!!");
+        }
     }
 }
