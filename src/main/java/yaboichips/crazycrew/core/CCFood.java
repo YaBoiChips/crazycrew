@@ -7,7 +7,7 @@ import net.minecraft.world.food.FoodProperties;
 public final class CCFood {
 
     public static final FoodProperties CELERY = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 0), 0.5F).alwaysEat().build();
-    public static final FoodProperties MACAROONS = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 0), 0.5F).alwaysEat().build();
+    public static final FoodProperties MACARON = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 0), 0.5F).alwaysEat().build();
     public static final FoodProperties GOLDEN_CHEEZE_ITS = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).fast().effect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1), 1.0F).effect(new MobEffectInstance(MobEffects.ABSORPTION, 500, 0), 1.0F).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000, 0), 1.0F).alwaysEat().build();
     public static final FoodProperties KETCHUP_CHIPS = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).fast().effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 2), 1.0F).effect(new MobEffectInstance(MobEffects.CONFUSION, 250, 0), 1.0F).alwaysEat().build();
     public static final FoodProperties PIE = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F).build();

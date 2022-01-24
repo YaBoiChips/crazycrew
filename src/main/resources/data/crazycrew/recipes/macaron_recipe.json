@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "C",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "crazycrew:macaron_cookie"
+    },
+    "C": {
+      "item": "crazycrew:macaron_filling"
+    }
+  },
+  "result": {
+    "item": "crazycrew:macaron",
+    "count": 1
+  },
+  "group": "food"
+}
