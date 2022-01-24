@@ -1,7 +1,12 @@
 package yaboichips.crazycrew.core;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import yaboichips.crazycrew.CrazyCrew;
 import yaboichips.crazycrew.common.items.Denki;
 import yaboichips.crazycrew.common.items.DrinkItem;
@@ -10,15 +15,15 @@ import yaboichips.crazycrew.common.items.FireSword;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class CCItems {
 
-    public static List<Item> items = new ArrayList<>();
+    public static @NotNull List<Item> items = new ArrayList<>();
 
-    public static final CreativeModeTab TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
-
+    public static final @NotNull CreativeModeTab TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
         @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(Items.APPLE);
+        public @NotNull ItemStack makeIcon() {
+            return new @NotNull ItemStack((ItemLike) new Item.Properties().food(CCFood.CELERY));
         }
     };
     public static final Item DENKI = createItem(new Denki(Tiers.DIAMOND, 3, -2.4F, new Item.Properties().tab(TAB)), "denki");
@@ -38,11 +43,13 @@ public class CCItems {
     public static final Item ONIGIRI = createItem(new Item(new Item.Properties().food(CCFood.ONIGIRI).tab(TAB)), "onigiri");
     public static final Item CHOCKOLATE_MILK = createItem(new DrinkItem(new Item.Properties().food(CCFood.CHOCKOLATE_MILK).tab(TAB)), "chocolate_milk");
 
-    public static Item createItem(Item item, String id) {
+    @Contract("null, !null -> fail; _, null -> null")
+    public static @Nullable Item createItem(Item item, String id) {
         return createItem(item, CrazyCrew.createResource(id));
     }
 
-    public static Item createItem(Item item, ResourceLocation id) {
+    @Contract("null, !null -> fail; _, null -> null")
+    public static @Nullable Item createItem(Item item, ResourceLocation id) {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
             item.setRegistryName(id);
 

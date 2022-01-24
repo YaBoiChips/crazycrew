@@ -14,30 +14,33 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class DrinkItem extends Item {
-    public DrinkItem(Item.Properties builder) {
+    public DrinkItem(final @NotNull Item.Properties builder) {
         super(builder);
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
+    public @NotNull ItemStack
+    finishUsingItem(final @NotNull ItemStack stack,
+                    final @NotNull Level worldIn,
+                    final @NotNull LivingEntity entityLiving) {
         super.finishUsingItem(stack, worldIn, entityLiving);
-        if (entityLiving instanceof ServerPlayer) {
-            ServerPlayer serverplayerentity = (ServerPlayer)entityLiving;
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-            serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
+        if (entityLiving instanceof ServerPlayer serverPlayerEntity) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
             return stack;
     }
 
 
 
-    public int getUseDuration(ItemStack stack) {
+    public int getUseDuration(final @NotNull ItemStack stack) {
         return 20;
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(final @NotNull ItemStack stack) {
         return UseAnim.DRINK;
     }
 
@@ -50,7 +53,10 @@ public class DrinkItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack>
+            use(final @NotNull Level level,
+                final @NotNull Player player,
+                final @NotNull InteractionHand hand) {
         return ItemUtils.startUsingInstantly(level, player, hand);
     }
 }

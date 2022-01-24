@@ -110,7 +110,7 @@ public class CrazyCrew {
             CCEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
             CCEntities.entities.clear();
             CCEntities.entities = null;
-            LOGGER.info("Entities registered!!");
+            LOGGER.info("Entities registered!");
         }
     }
 }
