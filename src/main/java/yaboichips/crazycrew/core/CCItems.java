@@ -3,7 +3,6 @@ package yaboichips.crazycrew.core;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,7 +22,7 @@ public final class CCItems {
     public static final @NotNull CreativeModeTab TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new @NotNull ItemStack((ItemLike) new Item.Properties().food(CCFood.CELERY));
+            return new @NotNull ItemStack(CELERY);
         }
     };
     public static final Item DENKI = createItem(new Denki(Tiers.DIAMOND, 3, -2.4F, new Item.Properties().tab(TAB)), "denki");
