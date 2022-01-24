@@ -1,11 +1,10 @@
 package yaboichips.crazycrew.core;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.food.Item;
+import net.minecraft.world.item.*;
 import yaboichips.crazycrew.CrazyCrew;
+import yaboichips.crazycrew.common.items.DrinkItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ public class CCItems {
 
     public static List<Item> items = new ArrayList<>();
 
-    public static final CreativeModeTab TWEAKS_TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
+    public static final CreativeModeTab TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
 
         @Override
         public ItemStack makeIcon() {
@@ -22,6 +21,18 @@ public class CCItems {
         }
     };
 
+    public static final Item CELERY = createItem(new Item(new Item.Properties().food(CCFood.CELERY).tab(TAB)), "celery");
+    public static final Item MACAROONS = createItem(new Item(new Item.Properties().food(CCFood.MACAROONS).tab(TAB)), "macaroons");
+    public static final Item GOLDEN_CHEEZE_ITS = createItem(new Item(new Item.Properties().food(CCFood.GOLDEN_CHEEZE_ITS).tab(TAB)), "golden_cheeze_its");
+    public static final Item KETCHUP_CHIPS = createItem(new Item(new Item.Properties().food(CCFood.KETCHUP_CHIPS).tab(TAB)), "ketchup_chips");
+    public static final Item PIE = createItem(new Item(new Item.Properties().food(CCFood.PIE).tab(TAB)), "pie");
+    public static final Item STIMPACK = createItem(new Item(new Item.Properties().food(CCFood.STIMPACK).tab(TAB)), "stimpack");
+    public static final Item COFFEE = createItem(new DrinkItem(new Item.Properties().food(CCFood.COFFEE).tab(TAB)), "coffee");
+    public static final Item CHICKEN_STRIPS = createItem(new Item(new Item.Properties().food(CCFood.CHICKEN_STRIPS).tab(TAB)), "chicken_strips");
+    public static final Item LOBSTER_BISQUE = createItem(new BowlFoodItem(new Item.Properties().food(CCFood.LOBSTER_BISQUE).tab(TAB)), "lobster_bisque");
+    public static final Item FREEZE_DRIED_ICE_CREAM = createItem(new Item(new Item.Properties().food(CCFood.FREEZE_DRIED_ICE_CREAM).tab(TAB)), "freeze_dried_ice_cream");
+    public static final Item ONIGIRI = createItem(new Item(new Item.Properties().food(CCFood.ONIGIRI).tab(TAB)), "onigiri");
+    public static final Item CHOCKOLATE_MILK = createItem(new DrinkItem(new Item.Properties().food(CCFood.CHOCKOLATE_MILK).tab(TAB)), "chocolate_milk");
 
     public static Item createItem(Item item, String id) {
         return createItem(item, CrazyCrew.createResource(id));
