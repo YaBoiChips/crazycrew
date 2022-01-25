@@ -19,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
+import static java.lang.Math.PI;
 import static net.minecraft.util.Mth.*;
 
 public final class Denki extends SwordItem {
@@ -63,9 +64,9 @@ public final class Denki extends SwordItem {
         if (!playerIn.getCooldowns().isOnCooldown(item.getItem())) {
             final float f7 = playerIn.getYRot();
             final float f = playerIn.getXRot();
-            float f1 = -sin(f7 * ((float) Math.PI / 180F)) * cos(f * ((float)Math.PI / 180F));
-            float f2 = -sin(f * ((float) Math.PI / 180F));
-            float f3 = cos(f7 * ((float) Math.PI / 180F)) * cos(f * ((float)Math.PI / 180F));
+            float f1 = -sin(f7 * ((float) PI / 180F)) * cos(f * ((float) PI / 180F));
+            float f2 = -sin(f * ((float) PI / 180F));
+            float f3 = cos(f7 * ((float) PI / 180F)) * cos(f * ((float) PI / 180F));
             final float f4 = sqrt((f1 * f1) + (f2 * f2) + (f3 * f3));
             f1 *= 4.0 / f4;
             f2 *= 4.0 / f4;

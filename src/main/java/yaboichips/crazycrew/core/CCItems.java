@@ -10,6 +10,7 @@ import yaboichips.crazycrew.CrazyCrew;
 import yaboichips.crazycrew.common.items.Denki;
 import yaboichips.crazycrew.common.items.DrinkItem;
 import yaboichips.crazycrew.common.items.FireSword;
+import yaboichips.crazycrew.common.items.UnoReverseCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,23 +23,16 @@ public final class CCItems {
     public static final @NotNull CreativeModeTab TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new @NotNull ItemStack(CELERY);
-        }
-    };
-
-    public static final @NotNull CreativeModeTab INGREDIENT_TAB = new CreativeModeTab(CrazyCrew.MOD_ID) {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new @NotNull ItemStack(MACARON_COOKIE);
+            return new @NotNull ItemStack(MACARON);
         }
     };
 
     public static final Item DENKI = createItem(new Denki(Tiers.DIAMOND, 3, -2.4F, new Item.Properties().tab(TAB)), "denki");
     public static final Item FIRE_SWORD = createItem(new FireSword(Tiers.DIAMOND, 3, -2.4F, new Item.Properties().tab(TAB)), "fire_sword");
-
+    public static final Item UNO_REVERSE_CARD  = createItem(new UnoReverseCard(new Item.Properties().tab(TAB)), "uno_reverse_card");
 
     public static final Item CELERY = createItem(new Item(new Item.Properties().food(CCFood.CELERY).tab(TAB)), "celery");
-    public static final Item MACAROON = createItem(new Item(new Item.Properties().food(CCFood.MACARON).tab(TAB)), "macaron");
+    public static final Item MACARON = createItem(new Item(new Item.Properties().food(CCFood.MACARON).tab(TAB)), "macaron");
     public static final Item GOLDEN_CHEEZE_ITS = createItem(new Item(new Item.Properties().food(CCFood.GOLDEN_CHEEZE_ITS).tab(TAB)), "golden_cheeze_its");
     public static final Item KETCHUP_CHIPS = createItem(new Item(new Item.Properties().food(CCFood.KETCHUP_CHIPS).tab(TAB)), "ketchup_chips");
     public static final Item PIE = createItem(new Item(new Item.Properties().food(CCFood.PIE).tab(TAB)), "pie");
@@ -51,8 +45,8 @@ public final class CCItems {
     public static final Item CHOCKOLATE_MILK = createItem(new DrinkItem(new Item.Properties().food(CCFood.CHOCKOLATE_MILK).tab(TAB)), "chocolate_milk");
 
 
-    public static final Item MACARON_COOKIE  = createItem(new Item(new Item.Properties().tab(INGREDIENT_TAB)), "macaron_cookie");
-    public static final Item MACARON_FILLING = createItem(new Item(new Item.Properties().tab(INGREDIENT_TAB)), "macaron_filling");
+    public static final Item MACARON_COOKIE  = createItem(new Item(new Item.Properties().tab(TAB)), "macaron_cookie");
+    public static final Item MACARON_FILLING = createItem(new Item(new Item.Properties().tab(TAB)), "macaron_filling");
 
     @Contract("null, !null -> fail; _, null -> null")
     public static @Nullable Item createItem(Item item, String id) {
