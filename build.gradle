@@ -125,8 +125,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.jetbrains:annotations:22.0.0'
-    implementation 'org.jetbrains:annotations:22.0.0'
     implementation 'org.jetbrains:annotations:20.1.0'
 
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed

@@ -4,12 +4,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -17,8 +20,12 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import yaboichips.crazycrew.common.entites.TheWhip;
+import yaboichips.crazycrew.common.entites.models.TheWhipModel;
+import yaboichips.crazycrew.common.entites.renderers.TheWhipRenderer;
 import yaboichips.crazycrew.core.CCEntities;
 import yaboichips.crazycrew.core.CCItems;
+import yaboichips.crazycrew.core.CCKeybinds;
 
 import javax.annotation.Nonnull;
 import java.util.stream.Collectors;
@@ -33,14 +40,37 @@ public final class CrazyCrew {
     public static final String MOD_ID = "crazycrew";
 
     public CrazyCrew() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::enqueueIMC);
+        modEventBus.addListener(this::processIMC);
+        modEventBus.addListener(this::doClientStuff);
+        modEventBus.addListener(this::registerEntityRenderers);
+        modEventBus.addListener(this::entityAttributes);
+        modEventBus.addListener(this::bakeLayers);
+
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    public void bakeLayers(EntityRenderersEvent.RegisterLayerDefinitions event){
+        event.registerLayerDefinition(TheWhipModel.LAYER_LOCATION, TheWhipModel::createBodyLayer);
+    }
+
+    public void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers renderer){
+        renderer.registerEntityRenderer(CCEntities.WHIP, TheWhipRenderer::new);
+    }
+
+    public void entityAttributes(final EntityAttributeCreationEvent event){
+        event.put(CCEntities.WHIP, TheWhip.createAttributes().build());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("CrazyCrew: Loadup stage: PREINIT");
+    }
+
+    private void doClientStuff(FMLClientSetupEvent event){
+        CCKeybinds.register();
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
@@ -70,6 +100,7 @@ public final class CrazyCrew {
      - Sam (Coffee, Stick of Sadness, Hair Dye (invis))
      - Taede (Gun (Phantom AK-47 thing), Ninja Smoke Bomb, Stimpack?)
      - Jake (Speed Boots WHEEEEE (lightning maybe), Chocolate Milk, Throwing Knife)
+     - Cat
      **/
 
     @SubscribeEvent
