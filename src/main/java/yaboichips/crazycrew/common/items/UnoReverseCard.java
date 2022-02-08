@@ -22,7 +22,7 @@ public class UnoReverseCard extends Item {
     public InteractionResultHolder<ItemStack> use(@NotNull Level world, @NotNull Player player, @NotNull InteractionHand hand) {
         AABB aabb = new AABB(player.blockPosition()).inflate(4);
         List<Player> list = world.getEntitiesOfClass(Player.class, aabb);
-        for (Player playerEntity: list) {
+        for (Player playerEntity : list) {
             if (playerEntity instanceof ServerPlayer) {
                 if (playerEntity != player && world.isClientSide) {
                     playerEntity.setXRot(-playerEntity.getXRot());

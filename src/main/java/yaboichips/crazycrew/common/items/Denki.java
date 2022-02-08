@@ -53,13 +53,13 @@ public final class Denki extends SwordItem {
         }
         return super.hurtEnemy(stack, target, attacker);
     }
-    
+
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack>
-            use(final @NotNull Level worldIn,
-                final @NotNull Player playerIn,
-                final @NotNull InteractionHand handIn) {
+    use(final @NotNull Level worldIn,
+        final @NotNull Player playerIn,
+        final @NotNull InteractionHand handIn) {
         ItemStack item = playerIn.getItemInHand(handIn);
         if (!playerIn.getCooldowns().isOnCooldown(item.getItem())) {
             final float f7 = playerIn.getYRot();
@@ -71,16 +71,16 @@ public final class Denki extends SwordItem {
             f1 *= 4.0 / f4;
             f2 *= 4.0 / f4;
             f3 *= 4.0 / f4;
-            playerIn.push(f1 , 0, f3);
-            
+            playerIn.push(f1, 0, f3);
+
             final Level world = playerIn.level;
-            
+
             final LightningBolt lightningboltentity = EntityType.LIGHTNING_BOLT.create(world);
             final LightningBolt lightningboltentity2 = EntityType.LIGHTNING_BOLT.create(world);
             final LightningBolt lightningboltentity3 = EntityType.LIGHTNING_BOLT.create(world);
             final LightningBolt lightningboltentity4 = EntityType.LIGHTNING_BOLT.create(world);
             final LightningBolt lightningboltentity5 = EntityType.LIGHTNING_BOLT.create(world);
-            
+
             lightningboltentity.setPos(Vec3.atCenterOf(new BlockPos(playerIn.getX(), playerIn.getY(), playerIn.getZ())));
             world.addFreshEntity(lightningboltentity);
             lightningboltentity2.setPos(Vec3.atCenterOf(new BlockPos(playerIn.getX() + 5, playerIn.getY(), playerIn.getZ())));

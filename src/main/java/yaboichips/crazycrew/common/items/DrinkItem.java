@@ -30,9 +30,8 @@ public final class DrinkItem extends Item {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
-            return stack;
+        return stack;
     }
-
 
 
     public int getUseDuration(final @NotNull ItemStack stack) {
@@ -54,9 +53,9 @@ public final class DrinkItem extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack>
-            use(final @NotNull Level level,
-                final @NotNull Player player,
-                final @NotNull InteractionHand hand) {
+    use(final @NotNull Level level,
+        final @NotNull Player player,
+        final @NotNull InteractionHand hand) {
         return ItemUtils.startUsingInstantly(level, player, hand);
     }
 }

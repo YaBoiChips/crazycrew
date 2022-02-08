@@ -43,7 +43,7 @@ public class SmokeBomb extends Item {
                     break;
                 }
             }
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, 600);
         }
 
         if (world.isClientSide) {

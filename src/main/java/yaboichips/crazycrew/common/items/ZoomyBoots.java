@@ -10,6 +10,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class ZoomyBoots extends ArmorItem {
     public ZoomyBoots(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
@@ -17,18 +18,15 @@ public class ZoomyBoots extends ArmorItem {
     }
 
 
-
     @Override
-    public void inventoryTick(ItemStack stack, Level world, Entity entity, int smthn, boolean bool) {
-        if (entity instanceof Player){
-            if (((Player) entity).getItemBySlot(EquipmentSlot.FEET) == stack){
-                ((Player) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 3, false, false));
-                int i = world.random.nextInt(4);
-                if (entity.isSprinting()){
+    public void inventoryTick(@NotNull final ItemStack stack, @NotNull final Level world, @NotNull final Entity entity, int smthn, boolean bool) {
+        if (entity instanceof Player) {
+            if (((Player) entity).getItemBySlot(EquipmentSlot.FEET) == stack) {
+                ((Player) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2, false, false));
+                if (entity.isSprinting()) {
                     world.addParticle(ParticleTypes.ELECTRIC_SPARK, entity.getX(), entity.getY(), entity.getZ(), 0D, 1D, 0D);
                     entity.maxUpStep = 1.0f;
-                }
-                else{
+                } else {
                     entity.maxUpStep = 0f;
                 }
             }

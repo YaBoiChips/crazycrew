@@ -18,6 +18,7 @@ public class HairDye extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(@NotNull final Level world, @NotNull final Player player, @NotNull final InteractionHand hand) {
         player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 300, 1));
+        player.getCooldowns().addCooldown(this, 600);
         return InteractionResultHolder.success(player.getItemInHand(hand));
     }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crazycrew:item/uno_reverse_card"
+  }
+}

@@ -35,7 +35,7 @@ public class ColMustard extends ArmorItem {
                     if (world.getBlockState(checkedPos) == Blocks.AIR.defaultBlockState() && world.getBlockState(checkedPos.above()) == Blocks.AIR.defaultBlockState() && world.getBlockState(checkedPos.below()) != Blocks.AIR.defaultBlockState()) {
                         player.setPos(checkedPos.getX(), checkedPos.getY(), checkedPos.getZ());
                         world.playSound(null, checkedPos, SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1, 1);
-                        ((Player) player).getCooldowns().addCooldown(stack.getItem(), 300);
+                        ((Player) player).getCooldowns().addCooldown(stack.getItem(), 600);
                         isChecking = false;
                     } else {
                         checkedPos = checkedPos.above();

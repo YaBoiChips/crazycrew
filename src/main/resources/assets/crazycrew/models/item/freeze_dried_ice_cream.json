@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crazycrew:item/freeze_dried_ice_cream"
+  }
+}

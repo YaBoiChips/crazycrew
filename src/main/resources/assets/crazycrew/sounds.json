@@ -1,0 +1,38 @@
+{
+  "lightsaber.buzz": {
+    "subtitle": "lightsaber.buzz",
+    "sounds": [
+      {
+        "name": "crazycrew:sabersounds/lightsaber.buzz",
+        "stream": false
+      }
+    ]
+  },
+  "lightsaber.open": {
+    "subtitle": "lightsaber.open",
+    "sounds": [
+      {
+        "name": "crazycrew:sabersounds/lightsaber.open",
+        "stream": false
+      }
+    ]
+  },
+  "lightsaber.close": {
+    "subtitle": "lightsaber.close",
+    "sounds": [
+      {
+        "name": "crazycrew:sabersounds/lightsaber.close",
+        "stream": false
+      }
+    ]
+  },
+  "ocarina.use": {
+    "subtitle": "ocarina.use",
+    "sounds": [
+      {
+        "name": "crazycrew:sabersounds/ocarina.use",
+        "stream": false
+      }
+    ]
+  }
+}

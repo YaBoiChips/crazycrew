@@ -10,7 +10,7 @@ import yaboichips.crazycrew.common.entites.models.TheWhipModel;
 
 public class TheWhipRenderer<T extends TheWhip> extends MobRenderer<T, TheWhipModel<T>> {
 
-    public static final ResourceLocation TEXTURES = new ResourceLocation(CrazyCrew.MOD_ID,"textures/entity/the_whip.png");
+    public static final ResourceLocation TEXTURES = new ResourceLocation(CrazyCrew.MOD_ID, "textures/entity/the_whip.png");
     public static final ModelLayerLocation THE_WHIP = new ModelLayerLocation(new ResourceLocation(CrazyCrew.MOD_ID, "the_whip"), "main");
 
 
