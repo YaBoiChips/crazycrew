@@ -3,9 +3,9 @@
   "item.crazycrew.denki": "Denki",
   "item.crazycrew.fire_sword": "Fire Sword",
   "item.crazycrew.celery": "Celery",
-  "item.crazycrew.zoomy_boots": "Zoomy Boots",
-  "item.crazycrew.golden_cheeze_its": "Golden Cheeze Its",
-  "item.crazycrew.ketchup_chips": "Ketchup Chips",
+  "item.crazycrew.zoomy_boots": "Zoomy Boot's",
+  "item.crazycrew.golden_cheeze_its": "Golden Cheeze It's",
+  "item.crazycrew.ketchup_chips": "Ketchup Chip's",
   "item.crazycrew.pie": "Pie",
   "item.crazycrew.stimpack": "Stimpack",
   "item.crazycrew.coffee": "Coffee",
@@ -38,5 +38,6 @@
   "entity.crazycrew.waifu": "Waifu",
   "entity.crazycrew.throwing_knife": "Throwing Knife",
   "entity.crazycrew.bullet": "Bullet",
+  "item.crazycrew.paladins_necklace": "Paladin's Necklace",
   "itemGroup.crazycrew": "Crazy Crew"
 }

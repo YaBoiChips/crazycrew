@@ -122,8 +122,8 @@ public final class CrazyCrew {
      * <p>
      * - Sam (`Coffee, `Stick of Sadness, `Hair Dye (invis))
      * <p>
-     * - Taede (Gun (Phantom AK-47 thing), `Ninja Smoke Bomb, `Stimpack?)
-     * - James (`Uno Reverse Card, Chicken Strips, Minigun?)
+     * - Taede (`Gun (Phantom AK-47 thing), `Ninja Smoke Bomb, `Stimpack?)
+     * - James (`Uno Reverse Card, `Chicken Strips, Minigun?)
      **/
 
     @SubscribeEvent

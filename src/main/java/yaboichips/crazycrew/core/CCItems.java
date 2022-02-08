@@ -68,6 +68,8 @@ public final class CCItems {
     public static final Item SABER_HANDLE = createItem(new SaberHandle(new Item.Properties().tab(TAB)), "saber_handle");
     public static final Item BULLET = createItem(new Item(new Item.Properties().tab(TAB)), "bullet");
     public static final Item GUN = createItem(new GunItem(new Item.Properties().tab(TAB)), "gun");
+    public static final Item PALADINS_NECKLACE = createItem(new PaladinsNecklace(new Item.Properties().tab(TAB)), "paladins_necklace");
+
 
     public static final Item CELERY = createItem(new Item(new Item.Properties().food(CCFood.CELERY).tab(TAB)), "celery");
     public static final Item MACARON = createItem(new Item(new Item.Properties().food(CCFood.MACARON).tab(TAB)), "macaron");

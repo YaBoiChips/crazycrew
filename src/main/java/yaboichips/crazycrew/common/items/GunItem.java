@@ -10,7 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import yaboichips.crazycrew.common.entites.BulletEntity;
-import yaboichips.crazycrew.common.entites.ThrowingKnifeEntity;
 
 public class GunItem extends Item {
     public GunItem(Properties properties) {
