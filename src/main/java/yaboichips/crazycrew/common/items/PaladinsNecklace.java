@@ -1,5 +1,8 @@
 package yaboichips.crazycrew.common.items;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -15,8 +18,9 @@ public class PaladinsNecklace extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(@NotNull final Level world, @NotNull final Player player, @NotNull final InteractionHand hand) {
-        player.curePotionEffects(this.getDefaultInstance());
+        ItemStack stack = player.getItemInHand(hand);
         player.getCooldowns().addCooldown(this, 600);
-        return InteractionResultHolder.success(player.getItemInHand(hand));
+        if (!world.isClientSide) player.removeAllEffects();
+        return InteractionResultHolder.success(stack);
     }
 }

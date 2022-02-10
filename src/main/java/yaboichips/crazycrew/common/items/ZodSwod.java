@@ -37,7 +37,7 @@ public class ZodSwod extends SwordItem {
             AABB aabb = new AABB(entity.blockPosition());
             for (LivingEntity victim : world.getEntitiesOfClass(LivingEntity.class, aabb)) {
                 if (victim != entity) {
-                    victim.hurt(DamageSource.playerAttack((Player) entity), 5);
+                    victim.hurt(DamageSource.playerAttack((Player) entity), 7);
                 }
             }
             setDamageTimer(getDamageTimer() - 1);

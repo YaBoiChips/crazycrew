@@ -20,12 +20,11 @@ public class SaberHandle extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull final Level world, @NotNull final Player player, @NotNull final InteractionHand hand) {
-        ItemStack item = player.getItemInHand(hand);
-        world.playSound(player, player.blockPosition(), CCSounds.OPEN, SoundSource.NEUTRAL, 0.5F, 1.0F);
+        world.playSound(null, player.blockPosition(), CCSounds.OPEN, SoundSource.NEUTRAL, 0.5F, 1.0F);
         player.setItemInHand(hand, CCItems.SABER.getDefaultInstance());
-        if (!world.isClientSide) {
-            Minecraft.getInstance().getSoundManager().play(new SaberSoundEvent(player));
-        }
+//        if (world.isClientSide) {
+//            Minecraft.getInstance().getSoundManager().play(new SaberSoundEvent(player));
+//        }
         return super.use(world, player, hand);
     }
 }

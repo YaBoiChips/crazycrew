@@ -91,7 +91,7 @@ public class TheWhip extends Animal implements PlayerRideable {
     @Override
     public void playerTouch(Player player) {
         if (player.getUUID() != getOwnerUUID()) {
-            player.hurt(CCDamageSource.CAR, 4);
+            player.hurt(CCDamageSource.CAR, 1);
         }
     }
 

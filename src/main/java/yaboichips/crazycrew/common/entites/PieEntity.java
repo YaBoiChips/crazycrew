@@ -9,15 +9,16 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Snowball;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import yaboichips.crazycrew.core.CCEntities;
 import yaboichips.crazycrew.core.CCItems;
 
-public class PieEntity extends Snowball {
+public class PieEntity extends ThrowableItemProjectile {
     public PieEntity(EntityType<? extends PieEntity> type, Level world) {
         super(CCEntities.PIE, world);
     }
@@ -50,5 +51,13 @@ public class PieEntity extends Snowball {
             entity.hurt(DamageSource.thrown(this, this.getOwner()), 1.5F);
             ((Player) entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0));
         }
+    }
+    protected void onHit(HitResult p_37406_) {
+        super.onHit(p_37406_);
+        if (!this.level.isClientSide) {
+            this.level.broadcastEntityEvent(this, (byte)3);
+            this.discard();
+        }
+
     }
 }

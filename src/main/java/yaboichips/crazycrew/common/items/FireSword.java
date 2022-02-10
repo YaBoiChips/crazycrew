@@ -38,29 +38,33 @@ public final class FireSword extends SwordItem {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(final @NotNull Level worldIn, final @NotNull Player playerIn, final @NotNull InteractionHand handIn) {
-        ItemStack item = playerIn.getItemInHand(handIn);
-        if (!playerIn.getCooldowns().isOnCooldown(item.getItem())) {
-            final float f7 = playerIn.getYRot();
-            final float f = playerIn.getXRot();
-            float f1 = -sin(f7 * ((float) PI / 180F)) * cos(f * ((float) PI / 180F));
-            float f2 = -sin(f * ((float) PI / 180F));
-            float f3 = cos(f7 * ((float) PI / 180F)) * cos(f * ((float) PI / 180F));
-            final float f4 = sqrt((f1 * f1) + (f2 * f2) + (f3 * f3));
-            f1 *= 3.0 / f4;
-            f3 *= 3.0 / f4;
-            playerIn.push(f1, 0, f3);
-            fireTimer = 60;
-            worldIn.playSound(null, playerIn.blockPosition(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1.0f, 1.0f);
-            playerIn.getCooldowns().addCooldown(playerIn.getItemInHand(handIn).getItem(), 600);
-            playerIn.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 60, 0));
-            playerIn.clearFire();
+        if (!worldIn.isClientSide) {
+            ItemStack item = playerIn.getItemInHand(handIn);
+            if (!playerIn.getCooldowns().isOnCooldown(item.getItem())) {
+                final float f7 = playerIn.getYRot();
+                final float f = playerIn.getXRot();
+                float f1 = -sin(f7 * ((float) PI / 180F)) * cos(f * ((float) PI / 180F));
+                float f2 = -sin(f * ((float) PI / 180F));
+                float f3 = cos(f7 * ((float) PI / 180F)) * cos(f * ((float) PI / 180F));
+                final float f4 = sqrt((f1 * f1) + (f2 * f2) + (f3 * f3));
+                f1 *= 3.0 / f4;
+                f3 *= 3.0 / f4;
+                playerIn.push(f1, 0, f3);
+                fireTimer = 60;
+                worldIn.playSound(null, playerIn.blockPosition(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1.0f, 1.0f);
+                playerIn.getCooldowns().addCooldown(playerIn.getItemInHand(handIn).getItem(), 600);
+                playerIn.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 60, 0));
+                playerIn.clearFire();
+            }
+            return new InteractionResultHolder<>(InteractionResult.SUCCESS, item);
         }
-        return new InteractionResultHolder<>(InteractionResult.SUCCESS, item);
+        return InteractionResultHolder.fail(playerIn.getItemInHand(handIn));
     }
 
     @Override
     public void inventoryTick(final @NotNull ItemStack stack, final @NotNull Level world, final @NotNull Entity player, final int p_41407_, final boolean p_41408_) {
-        if (fireTimer > 0) {
+        if (world.isClientSide) return;
+            if (fireTimer > 0) {
             fireTimer--;
             world.setBlock(player.getOnPos().above(), Blocks.FIRE.defaultBlockState(), 1);
             player.clearFire();

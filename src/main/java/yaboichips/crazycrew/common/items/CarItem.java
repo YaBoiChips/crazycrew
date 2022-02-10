@@ -19,11 +19,13 @@ public class CarItem extends Item {
         Player player = result.getPlayer();
         Level world = result.getLevel();
         BlockPos blockpos = result.getClickedPos();
-        TheWhip theWhip = CCEntities.WHIP.create(world);
-        theWhip.setPos(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
-        theWhip.setOwnerUUID(player.getUUID());
-        player.getItemInHand(result.getHand()).shrink(1);
-        world.addFreshEntity(theWhip);
+        if (!world.isClientSide) {
+            TheWhip theWhip = CCEntities.WHIP.create(world);
+            theWhip.setPos(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
+            theWhip.setOwnerUUID(player.getUUID());
+            player.getItemInHand(result.getHand()).shrink(1);
+            world.addFreshEntity(theWhip);
+        }
         return super.useOn(result);
     }
 }

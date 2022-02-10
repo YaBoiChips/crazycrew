@@ -18,7 +18,7 @@ public class SaberItem extends SwordItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        world.playSound(player, player.blockPosition(), CCSounds.CLOSE, SoundSource.NEUTRAL, 0.5F, 1.0F);
+        world.playSound(null, player.blockPosition(), CCSounds.CLOSE, SoundSource.NEUTRAL, 0.5F, 1.0F);
         player.setItemInHand(hand, CCItems.SABER_HANDLE.getDefaultInstance());
         return super.use(world, player, hand);
     }

@@ -3,6 +3,8 @@ package yaboichips.crazycrew.common.items;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,11 +22,13 @@ public class UnoReverseCard extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(@NotNull Level world, @NotNull Player player, @NotNull InteractionHand hand) {
+        player.getCooldowns().addCooldown(this, 600);
         AABB aabb = new AABB(player.blockPosition()).inflate(4);
         List<Player> list = world.getEntitiesOfClass(Player.class, aabb);
         for (Player playerEntity : list) {
             if (playerEntity instanceof ServerPlayer) {
-                if (playerEntity != player && world.isClientSide) {
+                if (playerEntity != player && !world.isClientSide) {
+                    playerEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 5, 100));
                     playerEntity.setXRot(-playerEntity.getXRot());
                     playerEntity.setYRot(-playerEntity.getYRot());
                     playerEntity.setDeltaMovement(playerEntity.getDeltaMovement().reverse());
