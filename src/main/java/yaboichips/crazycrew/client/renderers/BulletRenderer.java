@@ -1,4 +1,4 @@
-package yaboichips.crazycrew.common.entites.renderers;
+package yaboichips.crazycrew.client.renderers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -12,8 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import yaboichips.crazycrew.CrazyCrew;
+import yaboichips.crazycrew.client.models.BulletModel;
 import yaboichips.crazycrew.common.entites.BulletEntity;
-import yaboichips.crazycrew.common.entites.models.BulletModel;
 
 public class BulletRenderer extends EntityRenderer<BulletEntity> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(CrazyCrew.MOD_ID, "textures/entity/bullet.png");

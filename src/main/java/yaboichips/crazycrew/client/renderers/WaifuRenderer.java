@@ -1,12 +1,12 @@
-package yaboichips.crazycrew.common.entites.renderers;
+package yaboichips.crazycrew.client.renderers;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import yaboichips.crazycrew.CrazyCrew;
+import yaboichips.crazycrew.client.models.WaifuModel;
 import yaboichips.crazycrew.common.entites.Waifu;
-import yaboichips.crazycrew.common.entites.models.WaifuModel;
 
 public class WaifuRenderer<T extends Waifu> extends MobRenderer<T, WaifuModel<T>> {
     public static final ResourceLocation TEXTURES = new ResourceLocation(CrazyCrew.MOD_ID, "textures/entity/waifu.png");

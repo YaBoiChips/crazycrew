@@ -18,7 +18,7 @@ public final class CCEntities {
     public static final EntityType<TheWhip> WHIP = createEntity("the_whip", EntityType.Builder.of(TheWhip::new, MobCategory.MISC).sized(1, 1.5F).build("the_whip"));
     public static final EntityType<ThrowingKnifeEntity> THROWING_KNIFE = createEntity("throwing_knife", EntityType.Builder.<ThrowingKnifeEntity>of(ThrowingKnifeEntity::new, MobCategory.MISC).sized(0.4F, 0.4F).setTrackingRange(4).updateInterval(20).build("throwing_knife"));
     public static final EntityType<Waifu> WAIFU = createEntity("waifu", EntityType.Builder.of(Waifu::new, MobCategory.MISC).sized(2, 1F).build("waifu"));
-    public static final EntityType<PieEntity> PIE = createEntity("pie", EntityType.Builder.of(PieEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("pie"));
+    public static final EntityType<PieEntity> PIE = createEntity("pie", EntityType.Builder.<PieEntity>of(PieEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("pie"));
     public static final EntityType<Chadwick> CHADWICK = createEntity("chadwick", EntityType.Builder.of(Chadwick::new, MobCategory.MISC).sized(2, 1F).build("chadwick"));
     public static final EntityType<BulletEntity> BULLET = createEntity("bullet", EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC).sized(0.2F, 0.2F).setTrackingRange(4).updateInterval(20).build("bullet"));
 

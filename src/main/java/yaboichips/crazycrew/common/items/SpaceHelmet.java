@@ -13,26 +13,9 @@ import yaboichips.crazycrew.core.CCKeybinds;
 
 public class SpaceHelmet extends ArmorItem {
 
-    public boolean hasDoubleJumped;
 
     public SpaceHelmet(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
         super(material, slot, properties);
     }
-
-    @Override
-    public void inventoryTick(final @NotNull ItemStack stack, final @NotNull Level world, final @NotNull Entity player, final @NotNull int p_41407_, final @NotNull boolean p_41408_) {
-        if (world.isClientSide) return;
-        if (player instanceof Player) {
-            if (CCKeybinds.USE_ITEM.isDown() && !hasDoubleJumped) {
-                Vec3 vector3d = player.getLookAngle();
-                player.lerpMotion(vector3d.x + 1, vector3d.y + 1, vector3d.z + 1);
-                ((Player) player).getCooldowns().addCooldown(this, 600);
-                hasDoubleJumped = true;
-            }
-            if (player.isOnGround()) {
-                hasDoubleJumped = false;
-            }
-        }
-        super.inventoryTick(stack, world, player, p_41407_, p_41408_);
-    }
 }
+

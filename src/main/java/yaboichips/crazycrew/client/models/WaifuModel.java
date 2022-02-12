@@ -1,4 +1,4 @@
-package yaboichips.crazycrew.common.entites.models;
+package yaboichips.crazycrew.client.models;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;

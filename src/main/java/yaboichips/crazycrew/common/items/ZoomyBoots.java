@@ -27,7 +27,7 @@ public class ZoomyBoots extends ArmorItem {
                     world.addParticle(ParticleTypes.ELECTRIC_SPARK, entity.getX(), entity.getY(), entity.getZ(), 0D, 1D, 0D);
                     entity.maxUpStep = 1.0f;
                 } else {
-                    entity.maxUpStep = 0f;
+                    entity.maxUpStep = 0.6f;
                 }
             }
         }

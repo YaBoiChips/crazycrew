@@ -1,5 +1,7 @@
 package yaboichips.crazycrew.common.items;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,6 +20,7 @@ public class HairDye extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(@NotNull final Level world, @NotNull final Player player, @NotNull final InteractionHand hand) {
         player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 300, 1));
+        world.playSound(null, player.blockPosition(), SoundEvents.SLIME_BLOCK_BREAK, SoundSource.NEUTRAL, 1, 1);
         player.getCooldowns().addCooldown(this, 600);
         return InteractionResultHolder.success(player.getItemInHand(hand));
     }

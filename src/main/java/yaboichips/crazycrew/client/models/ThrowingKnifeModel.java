@@ -1,4 +1,4 @@
-package yaboichips.crazycrew.common.entites.models;// Made with Blockbench 4.1.3
+package yaboichips.crazycrew.client.models;// Made with Blockbench 4.1.3
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 

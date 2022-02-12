@@ -25,7 +25,7 @@ public class ColMustard extends ArmorItem {
 
     @Override
     public void inventoryTick(final @NotNull ItemStack stack, final @NotNull Level world, final @NotNull Entity player, final @NotNull int p_41407_, final @NotNull boolean p_41408_) {
-        if (world.isClientSide) return;
+        if (!world.isClientSide) return;
         if (player instanceof Player) {
             if (CCKeybinds.USE_ITEM.isDown()) {
                 checkedPos = player.blockPosition().above();

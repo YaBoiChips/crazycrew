@@ -1,4 +1,4 @@
-package yaboichips.crazycrew.common.entites.models;
+package yaboichips.crazycrew.client.models;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

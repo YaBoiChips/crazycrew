@@ -22,7 +22,6 @@ public class Ocarina extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(@NotNull final Level world, @NotNull final Player player, @NotNull final InteractionHand hand) {
-        if (!world.isClientSide) {
             AABB aabb = new AABB(player.blockPosition()).inflate(4);
             List<Player> list = world.getEntitiesOfClass(Player.class, aabb);
             ItemStack stack = player.getItemInHand(hand);
@@ -31,7 +30,6 @@ public class Ocarina extends Item {
             for (Player playerEntity : list) {
                 if (playerEntity != player) {
                     playerEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 300, 1));
-                }
             }
         }
         return InteractionResultHolder.success(player.getItemInHand(hand));

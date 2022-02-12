@@ -1,4 +1,4 @@
-package yaboichips.crazycrew.common.entites.renderers;
+package yaboichips.crazycrew.client.renderers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -13,7 +13,7 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import yaboichips.crazycrew.CrazyCrew;
 import yaboichips.crazycrew.common.entites.ThrowingKnifeEntity;
-import yaboichips.crazycrew.common.entites.models.ThrowingKnifeModel;
+import yaboichips.crazycrew.client.models.ThrowingKnifeModel;
 
 public class ThrowingKnifeRenderer extends EntityRenderer<ThrowingKnifeEntity> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(CrazyCrew.MOD_ID, "textures/entity/throwing_knife.png");
